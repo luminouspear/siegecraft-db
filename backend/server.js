@@ -21,12 +21,12 @@ app.use("/api/cards", cardRoutes);
 
 //serve static files from the react app
 // trying method from https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/build")));
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "client/build")));
+	app.use(express.static(path.join(__dirname, "/build")));
 	app.get("*", (req, res) => {
-		res.sendFile("index.html", { root: path.join("client/build/") });
+		res.sendFile("index.html", { root: path.join("/build/") });
 	});
 }
 
