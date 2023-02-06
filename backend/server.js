@@ -20,10 +20,10 @@ app.use(express.json());
 app.use("/api/cards", cardRoutes);
 
 //serve static files from the react app
-app.use(express.static("/public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("*", (req, res) => {
-	res.sendFile("index.html", { root: path.join("public") });
+	res.sendFile(path.join(__dirname, "public", "index.html"));
 
 });
 
