@@ -23,7 +23,8 @@ app.use("/api/cards", cardRoutes);
 app.use(express.static("/public"));
 
 app.get("*", (req, res) => {
-	res.sendFile("/public/index.html");
+	res.sendFile("index.html", { root: path.join(__dirname, "public") });
+
 });
 
 
