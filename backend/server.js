@@ -17,12 +17,15 @@ app.use(cors());
 app.use(express.json());
 
 //define paths
-app.use((path = "/api/cards"), cardRoutes);
+app.use("/api/cards", cardRoutes);
 
-app.use(express.static("public"));
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "index.html"));
+//serve static files from the react app
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "public/index.html"));
 });
+
 
 app.listen(PORT, function () {
 	console.log("Server is running on port: " + PORT);
