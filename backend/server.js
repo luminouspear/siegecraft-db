@@ -24,6 +24,16 @@ const publicPath = path.join("..", "public/");
 console.log("publicPath: ", publicPath);
 
 app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname, "client/build")));
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, 'client/build')));
+	app.get('*', (req, res) => { res.sendFile(path.join(__dirname = 'client/build/index.html')); })
+}
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname + "/client/public/index.html"));
+});
+
 
 const absolutePath = "/public/";
 
