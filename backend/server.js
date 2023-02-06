@@ -20,17 +20,16 @@ app.use(express.json());
 app.use("/api/cards", cardRoutes);
 
 //serve static files from the react app
-const publicPath = path.join("..", "public/")
-console.log('publicPath: ', publicPath);
+const publicPath = path.join("..", "public/");
+console.log("publicPath: ", publicPath);
 
 app.use(express.static(publicPath));
 
+const absolutePath = "/public/";
+
 app.get("*", (req, res) => {
-	
-	res.sendFile(path.join(publicPath, "index.html"));
-
+	res.sendFile(path.join(absolutePath, "index.html"));
 });
-
 
 app.listen(PORT, function () {
 	console.log("Server is running on port: " + PORT);
