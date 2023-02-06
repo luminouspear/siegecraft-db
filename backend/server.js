@@ -20,7 +20,6 @@ app.use(express.json());
 app.use("/api/cards", cardRoutes);
 
 //serve static files from the react app
-app.use(express.static(publicPath));
 app.use(express.static(path.join(__dirname, "client/build")));
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "client/build")));
