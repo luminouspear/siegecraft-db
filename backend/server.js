@@ -8,6 +8,7 @@ const app = express();
 const cors = require("cors");
 const cardRoutes = require("./routes/cardRoutes.js");
 const connectDB = require("./config/db");
+const path = require("path");
 
 connectDB();
 
@@ -17,6 +18,11 @@ app.use(express.json());
 
 //define paths
 app.use((path = "/api/cards"), cardRoutes);
+
+app.use(express.static("public"));
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.listen(PORT, function () {
 	console.log("Server is running on port: " + PORT);
