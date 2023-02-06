@@ -20,24 +20,20 @@ app.use(express.json());
 app.use("/api/cards", cardRoutes);
 
 //serve static files from the react app
-const publicPath = path.join("..", "public/");
-console.log("publicPath: ", publicPath);
-
 app.use(express.static(publicPath));
 app.use(express.static(path.join(__dirname, "client/build")));
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'client/build')));
-	app.get('*', (req, res) => { res.sendFile(path.join(__dirname = 'client/build/index.html')); })
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "client/build")));
+	app.get("*", (req, res) => {
+		res.sendFile(path.join((__dirname = "client/build/index.html")));
+	});
 }
 
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname + "/client/public/index.html"));
 });
 
-
-const absolutePath = "/public/";
-
-app.get('/', (req, res) => { res.send('root route') });
+// app.get('/', (req, res) => { res.send('root route') });
 
 app.listen(PORT, function () {
 	console.log("Server is running on port: " + PORT);
