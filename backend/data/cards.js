@@ -2299,10 +2299,10 @@ const cards = [
 	},
 	{
 		cardID: "F080",
-		cardName: "Raging Cyclops",
+		cardName: "Cyclopean Juggernaut",
 		superType: "",
 		type: "Unit",
-		subType: "Giant Warrior",
+		subType: "Elemental Construct",
 		cardElement: "Fire",
 		manaCost: 5,
 		cardText:
@@ -2321,7 +2321,7 @@ const cards = [
 		cardNumber: 80,
 		rarity: "Uncommon",
 		deckbuildingPoints: 1,
-		cardImage: "../prime/art/fire_080_raging_cyclops.jpg",
+		cardImage: "../prime/art/fire_080_cyclopean_juggernaut.jpg",
 		set: "Prime",
 		subSet: "α",
 		copyrightText:

@@ -167,9 +167,9 @@ export default function CardList() {
 						>
 							{closeModalButton}
 						</button>
-						<div className="grid grid-flow-col grid-cols-12">
+						<div className="grid grid-flow-col grid-cols-12 items-center justify-center">
 							<button
-								className="text-white text-4xl col-span-2 md:col-span-3"
+								className="text-white text-4xl col-span-1 md:col-span-1"
 								onClick={handleBackButtonClick}
 								disabled={selectedCardIndex === 0}
 							>
@@ -179,9 +179,9 @@ export default function CardList() {
 							<div
 								className={`${
 									selectedCard.type === "Territory"
-										? "rotate-90 transform transition-transform duration-300 ease-out "
+										? "rotate-90 transform transition-transform duration-300 ease-out col-span-6"
 										: "rotate-0 "
-								} w-fit md:col-span-7 col-span-8 relative`}
+								} w-fit relative col-span-10`}
 							>
 								<img
 									className={`${
@@ -249,14 +249,14 @@ export default function CardList() {
 									</div>
 								</div>
 							</div>
-						</div>
 						<button
-							className="text-white text-4xl col-span-2 md:col-span-3"
+							className="text-white text-4xl col-span-1 md:col-span-1"
 							onClick={handleForwardButtonClick}
 							disabled={selectedCardIndex === cards.length - 1}
 						>
 							{forwardButton}
 						</button>
+						</div>
 					</div>
 				</div>
 			)}
@@ -385,7 +385,7 @@ const CardFilter = ({ cards, onFilterChange }) => {
 	return (
 		<div className="flex items-center align-middle justify-center">
 			<form onSubmit={handleFilterSubmit}>
-				<div className="w-full flex flex-col md:flex-row align-middle items-center ">
+				<div className="w-full flex flex-col md:flex-row align-middle items-center mx-4 ">
 					<input
 						type="text"
 						value={searchTerm}
@@ -403,7 +403,7 @@ const CardFilter = ({ cards, onFilterChange }) => {
 				{/* Had to look up object.keys -- needed to find the actual element
 				names in the filters, not the values.
 				https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys */}
-				<div className="flex flex-row mx-4 mb-2">
+				<div className="flex flex-row mx-4 mb-2 hidden">
 					{Object.keys(elementFilters).map(
 						(element) =>
 							element && (
